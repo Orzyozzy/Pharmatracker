@@ -39,7 +39,7 @@
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						<a href="tel:+23-345-67890" >
 							<span>Call Now : </span>
-							<span class="h4">999-9999-99999</span>
+							<span class="h5">+23-456-6588</span>
 						</a>
 					</div>
 				</div>
@@ -107,9 +107,9 @@
 
 					<ul class="list-unstyled footer-menu lh-35">
 						<li><a href="#">Surgery </a></li>
-						<li><a href="#">Wome's Health</a></li>
+						<li><a href="#">Women's Health</a></li>
 						<li><a href="#">Radiology</a></li>
-						<li><a href="#">Cardioc</a></li>
+						<li><a href="#">Cardio</a></li>
 						<li><a href="#">Medicine</a></li>
 					</ul>
 				</div>
