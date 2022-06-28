@@ -17,7 +17,7 @@
 					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
 					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
 					
-					<p class="mb-4 pr-5">Join us as we will help you to have a good health by tracking your mdeication.</p>
+					<p class="mb-4 pr-5">Join us as we will help you to have a good health by tracking your medication.</p>
 					<div class="btn-container ">
 						<a href="appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
 					</div>
