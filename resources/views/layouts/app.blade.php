@@ -70,7 +70,7 @@
 			  	</li>
 			
 			   <li class="nav-item"><a class="nav-link" href="{{ url('contact') }}">Contact</a></li>
-			   <li class="nav-item"> <button type="button" class="btn btn-dark">LOGIN</button></li>
+			   <li class="nav-item"><a  href="{{ url('login') }}"><button type="button" class="btn btn-dark">LOGIN</button></li>
 			</ul>
 		  </div>
 		</div>
