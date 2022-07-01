@@ -4,8 +4,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h2 class="text-center text-dark mt-5">Login Form</h2>
-      <div class="text-center mb-5 text-dark">Made with bootstrap</div>
+      <h2 class="text-center text-dark mt-5">Pharma Cure</h2>
+      <!--<div class="text-center mb-5 text-dark">Pharma Cure</div>-->
       <div class="card my-5">
 
         <form class="card-body cardbody-color p-lg-5">

@@ -37,3 +37,7 @@ Route::get('/about', function () {
 Route::get('/login', function () {
     return view('pages.login');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
