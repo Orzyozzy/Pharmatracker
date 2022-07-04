@@ -18,7 +18,7 @@ Route::get('/about', function () {
 });
 */
 Route::get('/', function () {
-    return view('home');
+    return view('user');
 });
 
 Route::get('/contact', function () {
@@ -41,3 +41,6 @@ Route::get('/login', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+
+

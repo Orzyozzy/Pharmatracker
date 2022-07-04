@@ -1,30 +1,19 @@
 @extends('layouts.app')
 
 @section('section')
-
-
-
-
-
-
-<!-- Slider Start -->
-<!--
--->
 <div class ="container">
     <div class="row">
         <div class ="col-md-8 col-md-offset-2">
             <div class="panel panel-defaulth">
-                <div class="panel-heading">User Dashboard</div>
+                <div class="panel-heading">Admin Dashboard</div>
 
                 <div class="panel-body">
-                        You are logged in as <strong>user</strong>
+                        You are logged in as <strong>Admin</strong>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 @endsection
 

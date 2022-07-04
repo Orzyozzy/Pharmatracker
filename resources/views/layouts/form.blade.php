@@ -62,10 +62,8 @@
 				<a class="nav-link" href="{{url('')}}">Home</a>
 			  </li>
 			   <li class="nav-item"><a class="nav-link" href="{{url('about')}}">About</a></li>			
-			  
-			
-			 
-			   <li class="nav-item"><a  href="{{ url('login') }}"><button type="button" class="btn btn-dark">LOGIN</button></li>
+			   <li class="nav-item"><a class="nav-link" href="{{url('login')}}">Login</a></li>
+			   <li class="nav-item"><a class="nav-link" href="{{url('register')}}">register</a></li>
 			</ul>
 		  </div>
 		</div>
