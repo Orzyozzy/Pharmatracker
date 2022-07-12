@@ -39,17 +39,7 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    $(function() {
-        $( "#datepicker" ).datepicker();
-    });
-  </script>
- 
- <input type="text" required="" 
- placeholder="When are You Coming Back" name="datepicker2"  id="datepicker2" value="" name="datepicker2" class="txt">
-          <!-- End Date -->
-  </div>
+</div>
           <!-- End Row div-->
 
   <div class="row">
@@ -122,33 +112,21 @@
                           Drink Meds
                       </a>
                       <br/>
-                      <small>
-                          Created 01.01.2019
-                      </small>
                   </td>
                   <td>
                       <ul class="list-inline">
-                        
+                        07/07/2022 - 07/07/2022
                       </ul>
                   </td>
-                  <td class="project_progress">
-                      <div class="progress progress-sm">
-                          <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                          </div>
-                      </div>
-                      <small>
-                          57% Complete
-                      </small>
+                  <td class="project_progress">      
+                      <a>
+                        9:30 AM
+                      </a>
                   </td>
                   <td class="project-state">
-                      <span class="badge badge-success">Success</span>
+                      <span>Active</span>
                   </td>
-                  <td class="project-actions text-right">
-                      <a class="btn btn-primary btn-sm" href="#">
-                          <i class="fas fa-folder">
-                          </i>
-                          View
-                      </a>
+                  <td class="project-actions text-right">   
                       <a class="btn btn-info btn-sm" href="#">
                           <i class="fas fa-pencil-alt">
                           </i>
