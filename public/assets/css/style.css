@@ -399,8 +399,8 @@ a:focus {
 .dropdown .dropdown-menu {
   position: absolute;
   display: block;
-  background: #fff;
-  min-width: 240px;
+  background: rgb(236, 193, 193);
+  min-width: 150%;
   top: 130%;
   left: 0;
   right: 0px;
@@ -1515,3 +1515,34 @@ a:focus {
 a{
   text-decoration: none;
 }
+.back {
+  background-color: #ec7e99;
+}
+.bg-2 { 
+  background-color: #474e5d; /* Dark Blue */
+  color: #ffffff;
+}
+
+.ali{
+ padding: center;
+ padding-left:10%;
+ padding-right:10%;
+}
+
+.det{
+  padding-top:-505%;
+}
+
+.prime{
+  padding-top: 43px;
+  padding-left: 30px;
+}
+
+.prime1{
+  padding-top: 35px;
+  padding-left: 15px;
+  padding: 15px 52px;
+}
+
+
+

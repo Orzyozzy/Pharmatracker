@@ -1,28 +1,46 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('section')
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-xl-7">
+				<div class="block">
+					<div class="divider mb-3"></div>
+					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
+					<h1 class="mb-3 mt-3">Hi {{ Auth::user()->name }},Welcome to Pharma Cure</h1>
+					
+					<p class="mb-4 pr-5">Join us as we will help you to have a good health by tracking your medication.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-
-
-
-
-
-<!-- Slider Start -->
-<!--
--->
-<div class ="container">
-    <div class="row">
-        <div class ="col-md-8 col-md-offset-2">
-            <div class="panel panel-defaulth">
-                <div class="panel-heading">User Dashboard</div>
-
-                <div class="panel-body">
-                        You are logged in as <strong>user</strong>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="section about">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-4 col-sm-6">
+				<div class="about-img">
+					
+					<img src="{{ asset('assets/images/about/img-1.jpg')}}" alt="" class="img-fluid">
+					<img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4">
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div class="about-img mt-4 mt-lg-0">
+					<img src="{{asset('assets/images/about/img-3.jpg') }}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="about-content pl-4 mt-4 mt-lg-0">
+					<h2 class="title-color">Personal care <br>& healthy living</h2>
+					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>			
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 
 

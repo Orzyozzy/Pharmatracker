@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
+        
 
         $this->routes(function () {
             Route::middleware('api')
@@ -34,7 +36,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
+                ->namespace('App\Http\Controllers') 
                 ->group(base_path('routes/web.php'));
+
+                Route::prefix('api')
+                ->middleware('api')
+                ->namespace('App\Http\Controllers') 
+                ->group(base_path('routes/api.php'));
+
+              
         });
     }
 
