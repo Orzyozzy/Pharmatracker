@@ -21,8 +21,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function reminder()
+    public function index()
     {
-        return view('userpage.reminder');
+        return view('home');
     }
 }

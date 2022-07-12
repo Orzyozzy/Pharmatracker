@@ -19,7 +19,7 @@ Route::get('/about', function () {
 */
 
 /* This is For User View Routes  for set reminder*/
-Route::get('/reminder', 'HomeController@reminder');
+
 
 
 Route::get('/', function () {
@@ -40,7 +40,9 @@ Route::get('/drugs', function () {
     return view('userpage.drugs');
 });
 
-
+Route::get('/reminder', function (){
+    return view('userpage.reminder');
+});
 
 Route::get('/dashboard', function () {
     return view('userpage.dashboard');
