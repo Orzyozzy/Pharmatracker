@@ -118,8 +118,7 @@
 				<a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
 					 aria-expanded="false">Reminders </a>
 				<ul class="dropdown-menu" aria-labelledby="dropdown03">
-					<li><a class="dropdown-item" href="{{ url('reminder') }}">Set Reminders</a></li>
-					<li><a class="dropdown-item" href="{{ url('dashboard') }}">View Reminders</a></li>
+					<li><a class="dropdown-item" href="{{ url('dashboard') }}">Set Reminders</a></li>				
 				</ul>
 			  </li>
 

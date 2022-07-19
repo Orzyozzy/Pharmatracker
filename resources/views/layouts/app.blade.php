@@ -20,6 +20,28 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/img/favicon.png') }}">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/bootstrap.min.css') }}">
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/font-awesome.min.css') }}">
+	<!-- Lineawesome CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/line-awesome.min.css') }}">
+	<!-- Datatable CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/dataTables.bootstrap4.min.css') }}">
+	<!-- Select2 CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/select2.min.css') }}">
+	<!-- Datetimepicker CSS -->
+	<link rel="stylesheet" href="{{ asset('assets1/css/bootstrap-datetimepicker.min.css') }}">
+	<!-- Chart CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/plugins/morris/morris.css') }}">
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/style.css') }}">
+
+	{{-- message toastr --}}
+	<link rel="stylesheet" href="{{asset('assets1/css/toastr.min.css') }}">
+	<script src="{{asset('assets1/js/toastr_jquery.min.js') }}"></script>
+	<script src="{{asset('assets1/js/toastr.min.js') }}"></script>
 
 </head>
 

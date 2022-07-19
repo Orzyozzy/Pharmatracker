@@ -1508,7 +1508,7 @@ a:focus {
 
 
 
-.cardbody-color{
+.ibody-color{
   background-color: #ebf2fa;
 }
 
@@ -1527,6 +1527,7 @@ a{
  padding: center;
  padding-left:10%;
  padding-right:10%;
+
 }
 
 .det{
@@ -1544,5 +1545,21 @@ a{
   padding: 15px 52px;
 }
 
+.cardheader{
+background-color:#007bff;
+padding: 11px 11px;
+padding-bottom: -50%;
 
+
+}
+
+.buts {
+text-align: center;
+padding-top: 15px;
+}
+
+.box{
+  padding-top: 10px;
+  
+}
 

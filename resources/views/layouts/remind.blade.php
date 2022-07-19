@@ -44,6 +44,29 @@
   <!-- Theme style 
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css')}}">-->
 
+
+  	<link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/img/favicon.png') }}">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/bootstrap.min.css') }}">
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/font-awesome.min.css') }}">
+	<!-- Lineawesome CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/line-awesome.min.css') }}">
+	<!-- Datatable CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/dataTables.bootstrap4.min.css') }}">
+	<!-- Select2 CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/select2.min.css') }}">
+	<!-- Datetimepicker CSS -->
+	<link rel="stylesheet" href="{{ asset('assets1/css/bootstrap-datetimepicker.min.css') }}">
+	<!-- Chart CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/plugins/morris/morris.css') }}">
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="{{asset('assets1/css/style.css') }}">
+
+	{{-- message toastr --}}
+	<link rel="stylesheet" href="{{asset('assets1/css/toastr.min.css') }}">
+	<script src="{{asset('assets1/js/toastr_jquery.min.js') }}"></script>
+	<script src="{{asset('assets1/js/toastr.min.js') }}"></script>
 </head>
 
 <body id="top">
@@ -94,8 +117,7 @@
 				<a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
 					 aria-expanded="false">Reminders </a>
 				<ul class="dropdown-menu" aria-labelledby="dropdown03">
-					<li><a class="dropdown-item" href="{{ url('reminder') }}">Set Reminders</a></li>
-					<li><a class="dropdown-item" href="{{ url('dashboard') }}">View Reminders</a></li>
+					<li><a class="dropdown-item" href="{{ url('dashboard') }}">Set Reminders</a></li>
 				</ul>
 			  </li>
 
@@ -139,9 +161,32 @@
 	</nav>
 </header>
 	
-@yield('section')
+@yield('content')
 
 
+<!-- jQuery -->
+<script src="{{asset('assets1/js/jquery-3.5.1.min.js') }}"></script>
+<!-- Bootstrap Core JS -->
+<script src="{{asset('assets1/js/popper.min.js') }}"></script>
+<script src="{{asset('assets1/js/bootstrap.min.js') }}"></script>
+<!-- Chart JS -->
+<script src="{{asset('assets1/plugins/morris/morris.min.js') }}"></script>
+<script src="{{asset('assets1/plugins/raphael/raphael.min.js') }}"></script>
+<script src="{{asset('assets1/js/chart.js') }}"></script>
+<!-- Slimscroll JS -->
+<script src="{{asset('assets1/js/jquery.slimscroll.min.js') }}"></script>
+<!-- Select2 JS -->
+<script src="{{asset('assets1/js/select2.min.js') }}"></script>
+<!-- Datetimepicker JS -->
+<script src="{{asset('assets1/js/moment.min.js') }}"></script>
+<script src="{{asset('assets1/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- Datatable JS -->
+<script src="{{asset('assets1/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{asset('assets1/js/dataTables.bootstrap4.min.js') }}"></script>
+<!-- Multiselect JS -->
+<script src="{{asset('assets1/js/multiselect.min.js') }}"></script>		
+<!-- Custom JS -->
+<script src="{{asset('assets1/js/app.js') }}"></script>
 
 
 @yield('script')

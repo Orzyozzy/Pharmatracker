@@ -37,4 +37,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function storeRegister(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'email'      => 'required|string|email|max:255|unique:registers',
+            'password'   => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+        
+        $first_name = $request->first_name;
+        $last_name  = $request->last_name;
+        $email      = $request->email;
+        $password   = $request->password;
+
+        User::create([
+            'first_name'=> $first_name,
+            'last_name' => $last_name,
+            'email'     => $email,
+            'password'  => Hash::make($password),
+        ]);
+
+        return redirect('home/page');
+
+    }
 }
