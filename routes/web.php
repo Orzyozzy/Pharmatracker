@@ -65,6 +65,7 @@ Route::get('/drugs', function () {
 Route::get('/reminder', function (){
     return view('userpage.reminder');
 });
+
 Route::get('dashboard','ReminderViewwController@remind');
 Route::get('/search','ReminderViewwController@searchTest');
 Route::get('drugs','ReminderViewwController@drugs');

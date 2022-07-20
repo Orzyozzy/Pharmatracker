@@ -13,8 +13,6 @@ class ReminderViewwController extends Controller {
    public function remind() {
       $users = DB::select('select * from leaves_admins');
       return view('userpage.remind',['users'=>$users]);
-
-
    }
 
    public function drugs(Request $request) {

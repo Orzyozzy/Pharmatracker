@@ -106,41 +106,5 @@ class LeavesController extends Controller
             Toastr::error('Leaves Reminder delete fail :)','Error');
             return redirect()->back();
         }
-    }
-
-    // leaveSettings
-    public function leaveSettings()
-    {
-        return view('form.leavesettings');
-    }
-
-    // attendance admin
-    public function attendanceIndex()
-    {
-        return view('form.attendance');
-    }
-
-    // attendance employee
-    public function AttendanceEmployee()
-    {
-        return view('form.attendanceemployee');
-    }
-
-    // leaves Employee
-    public function leavesEmployee()
-    {
-        return view('form.leavesemployee');
-    }
-
-    // shiftscheduling
-    public function shiftScheduLing()
-    {
-        return view('form.shiftscheduling');
-    }
-
-    // shiftList
-    public function shiftList()
-    {
-        return view('form.shiftlist');
-    }
+    }  
 }

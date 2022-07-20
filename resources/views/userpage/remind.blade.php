@@ -178,6 +178,7 @@
     </div>
 </div>
 <!-- /Edit Leave Modal -->
+
 <!-- Delete Leave Modal -->
 <div class="modal custom-modal fade" id="delete_approve" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
@@ -221,10 +222,7 @@
             $('#e_number_of_days').val(_this.find('.day').text());
             $('#e_time').val(_this.find('.time').text());
             $('#e_from_date').val(_this.find('.from_date').text());  
-            $('#e_to_date').val(_this.find('.to_date').text());  
-            
-
-          
+            $('#e_to_date').val(_this.find('.to_date').text());           
         });
     </script>
     {{-- delete model --}}
