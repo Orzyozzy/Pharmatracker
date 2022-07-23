@@ -10,20 +10,22 @@ use App\Models\Drugs;
 
 
 class ReminderViewwController extends Controller {
-   public function remind() {
-      $users = DB::select('select * from leaves_admins');
+
+   public function remind() 
+   {
+      $users = DB::table('leaves_admins')->paginate(5);    
       return view('userpage.remind',['users'=>$users]);
-
-
    }
 
-   public function drugs(Request $request) {
-   
+   public function drugs(Request $request) 
+   {
+     // call data for listdrugs and display pagination is for display data rows (5)
      $users = DB::table('list_drugs')->paginate(5);
       return view('userpage.drugs',['drugs'=>$users]);
    }
 
-      public function searchTest(Request $request){
+      public function searchTest(Request $request)
+      {
          $users = DB::table('list_drugs')
          //->where('name' , '>=', '$name ')
         //     ->where('created_at', '<=', $todate)
@@ -37,6 +39,12 @@ class ReminderViewwController extends Controller {
           }
       
         
+      }
+
+      public function typemed(){
+         $data = DB::table('type_med')->get();
+         return view('userpage.drugs',['data'=>$data]);
+
       }
 
       public function refresh(){

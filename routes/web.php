@@ -32,11 +32,7 @@ use App\Http\Controllers\SalesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/about', function () {
-    return view('about');
-});
-*/
+
 
 /* This is For User View Routes  for set reminder*/
 
@@ -65,6 +61,7 @@ Route::get('/drugs', function () {
 Route::get('/reminder', function (){
     return view('userpage.reminder');
 });
+
 Route::get('dashboard','ReminderViewwController@remind');
 Route::get('/search','ReminderViewwController@searchTest');
 Route::get('drugs','ReminderViewwController@drugs');

@@ -15,13 +15,13 @@ class CreateLeavesAdminsTable extends Migration
     {
         Schema::create('leaves_admins', function (Blueprint $table) {
             $table->id();
-            $table->string('rec_id')->nullable();
-            $table->string('leave_type')->nullable();
-            $table->string('time')->nullable();
+            $table->string('medname')->nullable();
+            $table->string('drugtype')->nullable();
+            $table->string('contact_num')->nullable();
             $table->string('from_date')->nullable();
             $table->string('to_date')->nullable();
+            $table->string('freqency')->nullable();
             $table->string('day')->nullable();
-        
             $table->timestamps();
         });
     }

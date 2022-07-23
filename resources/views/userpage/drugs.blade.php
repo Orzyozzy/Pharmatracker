@@ -7,7 +7,8 @@
         <h2 class="text-center display-4">Pill Finder</h2>
               <div class="">   
                   <div class="col-md-6 offset-md-1 ">
-                        <div class="form-group">     
+                        <div class="form-group">  
+                             <!-- Direct to Web.php and call controller-->    
                             <form action="/search" class="ali"> 
                             <div class="input-group  input-group-lg">
                                 <input type="text" name="query" class="form-control" placeholder="Search name">
@@ -39,7 +40,8 @@
                               <th>Description</th>                         
                           </tr>
                       </thead>  
-                      <tbody>                   
+                      <tbody>    
+                         <!-- Data table for list of drugs to display data-->                
                         @foreach ($drugs as $key => $items)
                         <tr>
                         <td hidden class="id">{{ $items->id }}</td>
@@ -56,6 +58,7 @@
                 <ul class="pagination justify-content-end">
                   <li class="page-item disabled">       
                   </li>
+                   <!-- pagination number--> 
                   <li>   {{ ($drugs->links()) }}</li>
                   </li>
                 </ul>

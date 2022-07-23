@@ -11,41 +11,48 @@ use DateTime;
 class LeavesController extends Controller
 {
     // leaves
-    public function leaves()
-    {
-        $leaves = DB::table('leaves_admins')
+    //public function reminderzxc()
+    //{
+        //$leaves = DB::table('leaves_admins')
                  
-                    ->get();
+                    //->get();
 
-        return view('form.leaves',compact('leaves'));
-    }
+        //return view('userpage.remind',compact('remind'));
+   // }
+
     // save record
     public function saveRecord(Request $request)
     {
         $request->validate([
-            'leave_type'   => 'required|string|max:255',
-            'time'         => 'required|string|max:255',
+            'medname'   => 'required|string|max:255',
+            'drugtype'   => 'required|string|max:255',
+            'contact_num'  => 'required|string|max:255',
             'from_date'    => 'required|string|max:255',
             'to_date'      => 'required|string|max:255',
+            'freqency'   => 'required|string|max:255',
             
         ]);
 
         DB::beginTransaction();
         try {
 
+         
             $from_date = new DateTime($request->from_date);
             $to_date = new DateTime($request->to_date);
+            $contact_num = ['contact_num'=> 'required|numeric'];
             $day     = $from_date->diff($to_date);
             $days    = $day->d;
 
-            $leaves = new LeavesAdmin;
-            $leaves->leave_type    = $request->leave_type;
-            $leaves->time          = $request->time;
-            $leaves->from_date     = $request->from_date;
-            $leaves->to_date       = $request->to_date;
-            $leaves->day           = $days;
+            $reminder = new LeavesAdmin;
+            $reminder->medname       = $request->medname;
+            $reminder->drugtype      = $request->drugtype;
+            $reminder->contact_num   = $request->contact_num;
+            $reminder->from_date     = $request->from_date;
+            $reminder->to_date       = $request->to_date;
+            $reminder->freqency     = $request->freqency;
+            $reminder->day           = $days;
    
-            $leaves->save();
+            $reminder->save();
             
             DB::commit();
             Toastr::success('Create new Reminder successfully :)','Success');
@@ -70,11 +77,14 @@ class LeavesController extends Controller
 
             $update = [
                 'id'           => $request->id,
-                'leave_type'   => $request->leave_type,
-                'time'         => $request->time,
+                'medname'   => $request->medname,
+                'drugtype'         => $request->drugtype,
+                'contact_num'    => $request->contact_num,
                 'from_date'    => $request->from_date,
                 'to_date'      => $request->to_date,
+                'freqency'    => $request->freqency,
                 'day'          => $days,
+
                 
             ];
 
@@ -108,39 +118,4 @@ class LeavesController extends Controller
         }
     }
 
-    // leaveSettings
-    public function leaveSettings()
-    {
-        return view('form.leavesettings');
-    }
-
-    // attendance admin
-    public function attendanceIndex()
-    {
-        return view('form.attendance');
-    }
-
-    // attendance employee
-    public function AttendanceEmployee()
-    {
-        return view('form.attendanceemployee');
-    }
-
-    // leaves Employee
-    public function leavesEmployee()
-    {
-        return view('form.leavesemployee');
-    }
-
-    // shiftscheduling
-    public function shiftScheduLing()
-    {
-        return view('form.shiftscheduling');
-    }
-
-    // shiftList
-    public function shiftList()
-    {
-        return view('form.shiftlist');
-    }
 }

@@ -30,33 +30,38 @@
                     <table class="table table-striped custom-table mb-0 datatable">
                         <thead>
                             <tr>
-                                <th>Reminder</th>
-                                <th>Time</th>
-                                <th>Date From</th>
-                                <th>Date To</th>
-                                <th>No of Days</th>                         
+                                <th>Medication's Name</th>
+                                <th>Type of Drug</th>
+                                <th>Contact Number</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Frequency</th>
+                                <th>Days</th>                         
                                 <th class="text-right">Actions</th>
                             </tr>
                         </thead>
 
                         <tbody>
+                            <!--Data table for reminder--> 
                             @if(!empty($users))
                                 @foreach ($users as $items)
                                 <tr>
                                 <td hidden class="id">{{ $items->id }}</td>
-                                <td class="leave_type">{{$items->leave_type}}</td>
-                                <td class="time">{{$items->time}}</td>
+                                <td class="medname">{{$items->medname}}</td>
+                                <td class="drugtype">{{$items->drugtype}}</td>
+                                <td class="contact_num">{{$items->contact_num}}</td>
                                 <td hidden class="from_date">{{ $items->from_date }}</td>
                                 <td>{{date('d F, Y',strtotime($items->from_date)) }}</td>
                                 <td hidden class="to_date">{{$items->to_date}}</td>
                                 <td>{{date('d F, Y',strtotime($items->to_date)) }}</td>
+                                <td class="freqency">{{$items->freqency}}</td>
                                 <td class="day">{{$items->day}} Day</td> 
                                         <td class="text-right">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item leaveUpdate" data-toggle="modal" data-id="'.$items->id.'" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item leaveDelete" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item remindUpdate" data-toggle="modal" data-id="'.$items->id.'" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item remindDelete" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -67,7 +72,17 @@
                     </table>
                 </div>
             </div>
+            <nav aria-label="Page navigation example" >
+                <ul class="pagination justify-content-end">
+                  <li class="page-item disabled">       
+                  </li>
+                   <!-- pagination number--> 
+                  <li>   {{ ($users->links()) }}</li>
+                  </li>
+                </ul>
+              </nav>
         </div>
+
  <!-- Add Leave Modal -->
 <div id="add_leave" class="modal custom-modal fade" role="dialog">
 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -79,30 +94,65 @@
             </button>
         </div>
         <div class="modal-body">
+            <!-- Direct to Web.php and call controller--> 
             <form action="{{ route('form/leaves/save') }}" method="POST">
                 @csrf
                 <div class="form-group row">
-                    <label class="col-form-label col-4">Type of Reminder</label>
+                    <label class="col-form-label col-4">Medication's Name</label>
                     <div class="col-8">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="leaveType" name="leave_type" value="{{ old('leave_type') }}" placeholder="Enter your reminder">
-                        @error('leaveType')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>        	
-                </div>
-              
-                <div class="form-group row">
-                    <label class="col-form-label col-4">Input Time:</label>
-                    <div class="col-8">
-                        <input type="time" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}">
-                        @error('time')
+                        <input type="text" class="form-control @error('medname') is-invalid @enderror" id="medname" name="medname" value="{{ old('medname') }}" placeholder="Enter your Medication's name">
+                        @error('medname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    </div>        	
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Contact Number</label>
+                    <div class="col-8">
+                        <input type="number" class="form-control @error('contact_num') is-invalid @enderror" id="contact_num" name="contact_num" value="{{ old('contact_num') }}" placeholder="Enter your number">
+                        @error('contact_num')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div> 	
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Type of Drugs</label>
+                    <div class="col-8">
+                        <select class="select" id="drugtype" name="drugtype">
+                            <option selected disabled>Select Type of Drugs</option>
+                            <option value="Pill">Pill</option>
+                            <option value="Medical Leave">Capsule</option>
+                            <option value="Tablet">Tablet</option>
+                            <option value="Syrup">Syrup</option>
+                            <option value="Suspension">Suspension</option>
+                            <option value="Injection">Injection</option>
+                            <option value="Sachet">Sachet</option>
+                            <option value="Eye Drop">Eye Drop</option>
+                        </select>
                     </div>	
+                </div>
+               
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Frequency of drug</label>
+                    <div class="col-8">
+                        <select class="select" id="freqency" name="freqency">
+                            <option selected disabled>Select Leave Type</option>
+                            <option value="Pill">Every 2 Hours</option>
+                            <option value="Medical Leave">Every 4 Hours</option>
+                            <option value="Tablet">Once a Day</option>
+                            <option value="Syrup">Twice a Day</option>
+                            <option value="Suspension">Three Times a Day</option>
+                            <option value="Injection">Before Meal</option>
+                            <option value="Sachet">At Bedtime</option>                    
+                        </select>
+                  
+                    </div> 	
                 </div>
                 <div class="form-group">
                     <label>From <span class="text-danger">*</span></label>
@@ -115,7 +165,7 @@
                     <div class="cal-icon">
                         <input type="text" class="form-control datetimepicker" id="to_date" name="to_date">
                     </div>
-                </div>
+                </div>      
                 <div class="submit-section">
                     <button type="submit" class="btn btn-primary submit-btn">Submit</button>
                 </div>
@@ -138,20 +188,56 @@
                 </button>
             </div>
             <div class="modal-body">
+                <!-- Direct to Web.php and call controller--> 
                 <form action="{{ route('form/leaves/edit') }}" method="POST">
                     @csrf
                     <input type="hidden" id="e_id" name="id" value="">
                     <div class="form-group row">
-                        <label class="col-form-label col-4">Type of Reminder</label>
+                        <label class="col-form-label col-4">Medication's Name</label>
                         <div class="col-8">
-                            <input type="text" class="form-control" id="e_leave_type" name="leave_type" value="{{ old('leave_type') }}" value="">                      
+                            <input type="text" class="form-control" id="e_medname" name="medname" value="">
                         </div>        	
                     </div>
+
                     <div class="form-group row">
-                        <label class="col-form-label col-4">Input Time:</label>
+                        <label class="col-form-label col-4">Contact Number</label>
                         <div class="col-8">
-                            <input type="time" class="form-control" id="e_time" name="time" value="">
+                            <input type="number" class="form-control" id="e_contact_num" name="contact_num" value="{{ old('contact_num') }}" placeholder="Enter your number">
+                        </div> 	
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Type of Drugs</label>
+                        <div class="col-8">
+                            <select class="select" id="e_drugtype" name="drugtype">
+                                <option selected disabled>Select Type of Drugs</option>
+                                <option value="Pill">Pill</option>
+                                <option value="Medical Leave">Capsule</option>
+                                <option value="Tablet">Tablet</option>
+                                <option value="Syrup">Syrup</option>
+                                <option value="Suspension">Suspension</option>
+                                <option value="Injection">Injection</option>
+                                <option value="Sachet">Sachet</option>
+                                <option value="Eye Drop">Eye Drop</option>
+                            </select>
                         </div>	
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Frequency of drug</label>
+                        <div class="col-8">
+                            <select class="select" id="e_freqency" name="freqency">
+                                <option selected disabled>Select Leave Type</option>
+                                <option value="Pill">Every 2 Hours</option>
+                                <option value="Medical Leave">Every 4 Hours</option>
+                                <option value="Tablet">Once a Day</option>
+                                <option value="Syrup">Twice a Day</option>
+                                <option value="Suspension">Three Times a Day</option>
+                                <option value="Injection">Before Meal</option>
+                                <option value="Sachet">At Bedtime</option>                    
+                            </select>
+                      
+                        </div> 	
                     </div>
                     <div class="form-group">
                         <label>From <span class="text-danger">*</span></label>
@@ -178,6 +264,7 @@
     </div>
 </div>
 <!-- /Edit Leave Modal -->
+
 <!-- Delete Leave Modal -->
 <div class="modal custom-modal fade" id="delete_approve" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
@@ -188,6 +275,7 @@
                     <p>Are you sure want to delete this reminder?</p>
                 </div>
                 <div class="modal-btn delete-action">
+                     <!-- Direct to Web.php and call controller--> 
                     <form action="{{ route('form/leaves/edit/delete') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id" class="e_id" value="">
@@ -211,29 +299,39 @@
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
-    {{-- update js --}}
+
+    {{-- update js for edit button --}}
     <script>
-        $(document).on('click','.leaveUpdate',function()
+        $(document).on('click','.remindUpdate',function()
         {
             var _this = $(this).parents('tr');
             $('#e_id').val(_this.find('.id').text());
-            $('#e_leave_type').val(_this.find('.leave_type').text());
+            $('#e_medname').val(_this.find('.medname').text());
+            $('#e_contact_num').val(_this.find('.contact_num').text());
+            $('#e_drugtype').val(_this.find('.drugtype').text());
+            $('#e_freqency').val(_this.find('.freqency').text());
             $('#e_number_of_days').val(_this.find('.day').text());
             $('#e_time').val(_this.find('.time').text());
             $('#e_from_date').val(_this.find('.from_date').text());  
             $('#e_to_date').val(_this.find('.to_date').text());  
             
+            var drugtype = (_this.find(".drugtype").text());
+            var _option = '<option selected value="' + drugtype+ '">' + _this.find('.drugtype').text() + '</option>'
+            $( _option).appendTo("#e_drugtype");
 
+            var freqency = (_this.find(".freqency").text());
+            var _option = '<option selected value="' + freqency+ '">' + _this.find('.freqency').text() + '</option>'
+            $( _option).appendTo("#e_freqency");
           
         });
     </script>
-    {{-- delete model --}}
+    {{-- delete js for delete button --}}
     <script>
-        $(document).on('click','.leaveDelete',function()
+        $(document).on('click','.remindDelete',function()
         {
             var _this = $(this).parents('tr');
             $('.e_id').val(_this.find('.id').text());
         });
     </script>
-    @endsection
+        @endsection
 @endsection
