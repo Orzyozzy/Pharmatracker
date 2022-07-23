@@ -116,6 +116,10 @@ class LeavesController extends Controller
             Toastr::error('Leaves Reminder delete fail :)','Error');
             return redirect()->back();
         }
+<<<<<<< HEAD
     }
 
+=======
+    }  
+>>>>>>> 4cd81270433c7269ff076312e56d2462bbb4854a
 }
