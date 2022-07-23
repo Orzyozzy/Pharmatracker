@@ -22,10 +22,6 @@ class CreateLeavesAdminsTable extends Migration
             $table->string('to_date')->nullable();
             $table->string('freqency')->nullable();
             $table->string('day')->nullable();
-<<<<<<< HEAD
-=======
-      
->>>>>>> 4cd81270433c7269ff076312e56d2462bbb4854a
             $table->timestamps();
         });
     }
