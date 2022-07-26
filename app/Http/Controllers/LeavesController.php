@@ -10,15 +10,6 @@ use DateTime;
 
 class LeavesController extends Controller
 {
-    // leaves
-    //public function reminderzxc()
-    //{
-        //$leaves = DB::table('leaves_admins')
-                 
-                    //->get();
-
-        //return view('userpage.remind',compact('remind'));
-   // }
 
     // save record
     public function saveRecord(Request $request)
