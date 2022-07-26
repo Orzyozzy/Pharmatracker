@@ -127,7 +127,7 @@
                         <select class="select" id="drugtype" name="drugtype">
                             <option selected disabled>Select Type of Drugs</option>
                             <option value="Pill">Pill</option>
-                            <option value="Medical Leave">Capsule</option>
+                            <option value="Capsule">Capsule</option>
                             <option value="Tablet">Tablet</option>
                             <option value="Syrup">Syrup</option>
                             <option value="Suspension">Suspension</option>
@@ -143,13 +143,13 @@
                     <div class="col-8">
                         <select class="select" id="freqency" name="freqency">
                             <option selected disabled>Select Leave Type</option>
-                            <option value="Pill">Every 2 Hours</option>
-                            <option value="Medical Leave">Every 4 Hours</option>
-                            <option value="Tablet">Once a Day</option>
-                            <option value="Syrup">Twice a Day</option>
-                            <option value="Suspension">Three Times a Day</option>
-                            <option value="Injection">Before Meal</option>
-                            <option value="Sachet">At Bedtime</option>                    
+                            <option value="Every 2 Hours">Every 2 Hours</option>
+                            <option value="Every 4 Hours">Every 4 Hours</option>
+                            <option value="Once a Day">Once a Day</option>
+                            <option value="Twice a Day">Twice a Day</option>
+                            <option value="Three Times a Day">Three Times a Day</option>
+                            <option value="Before Meal">Before Meal</option>
+                            <option value="At Bedtime">At Bedtime</option>                    
                         </select>
                   
                     </div> 	
