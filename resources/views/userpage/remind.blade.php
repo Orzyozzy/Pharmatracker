@@ -33,6 +33,7 @@
                                 <th>Medication's Name</th>
                                 <th>Type of Drug</th>
                                 <th>Contact Number</th>
+                                <th>Dosage</th>
                                 <th>From</th>
                                 <th>To</th>
                                 <th>Frequency</th>
@@ -143,7 +144,7 @@
                 <div class="form-group row">
                     <label class="col-form-label col-4">Dosages</label>
                     <div class="col-8">
-                        <select class="select" id="e_dosage" name="dosage">
+                        <select class="select" id="dosage" name="dosage">
                             <option selected disabled>Select Dosage</option>
                             <option value="Grams(g)">Grams(g)</option>
                             <option value="Micrograms(mcg)">Micrograms(mcg)</option>
@@ -251,18 +252,7 @@
                         </select>
                     </div> 	
                 </div>  
-                <div class="form-group row">
-                    <label class="col-form-label col-4">Dosages</label>
-                    <div class="col-8">
-                        <select class="select" id="e_dosage" name="dosage">
-                            <option selected disabled>Select Dosage</option>
-                            <option value="Grams(g)">Grams(g)</option>
-                            <option value="Micrograms(mcg)">Micrograms(mcg)</option>
-                            <option value="Milligrams(mg)">Milligrams(mg)</option>
-                            <option value="Millilitre(mL)">Millilitre(mL)</option>                
-                        </select>
-                    </div> 	
-                </div>
+              
 
                     <div class="form-group row">
                         <label class="col-form-label col-4">Frequency of drug</label>
