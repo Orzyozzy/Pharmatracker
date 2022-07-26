@@ -8,7 +8,7 @@
 				<div class="block">
 					<div class="divider mb-3"></div>
 					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
-					<h1 class="mb-3 mt-3">Hi {{ Auth::user()->name }},Welcome to Pharma Cure</h1>
+					<h1 class="mb-3 mt-3">Hi {{ Auth::user()->name }}, Welcome to Pharma Cure</h1>
 					
 					<p class="mb-4 pr-5">Join us as we will help you to have a good health by tracking your medication.</p>
 				</div>
