@@ -20,6 +20,7 @@ class LeavesController extends Controller
             'contact_num'  => 'required|string|max:255',
             'from_date'    => 'required|string|max:255',
             'to_date'      => 'required|string|max:255',
+            'dosage'        => 'required|string|max:255',
             'freqency'   => 'required|string|max:255',
             
         ]);
@@ -40,6 +41,7 @@ class LeavesController extends Controller
             $reminder->contact_num   = $request->contact_num;
             $reminder->from_date     = $request->from_date;
             $reminder->to_date       = $request->to_date;
+            $reminder->dosage       = $request->dosage;
             $reminder->freqency     = $request->freqency;
             $reminder->day           = $days;
    
@@ -73,6 +75,7 @@ class LeavesController extends Controller
                 'contact_num'    => $request->contact_num,
                 'from_date'    => $request->from_date,
                 'to_date'      => $request->to_date,
+                'dosage'    => $request->dosage,
                 'freqency'    => $request->freqency,
                 'day'          => $days,
 

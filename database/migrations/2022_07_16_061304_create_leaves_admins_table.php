@@ -20,6 +20,7 @@ class CreateLeavesAdminsTable extends Migration
             $table->string('contact_num')->nullable();
             $table->string('from_date')->nullable();
             $table->string('to_date')->nullable();
+            $table->string('dosage')->nullable();
             $table->string('freqency')->nullable();
             $table->string('day')->nullable();
             $table->timestamps();

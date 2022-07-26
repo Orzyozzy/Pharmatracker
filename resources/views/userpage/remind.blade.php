@@ -50,6 +50,7 @@
                                 <td class="medname">{{$items->medname}}</td>
                                 <td class="drugtype">{{$items->drugtype}}</td>
                                 <td class="contact_num">{{$items->contact_num}}</td>
+                                <td class="dosage">{{$items->dosage}}</td>
                                 <td hidden class="from_date">{{ $items->from_date }}</td>
                                 <td>{{date('d F, Y',strtotime($items->from_date)) }}</td>
                                 <td hidden class="to_date">{{$items->to_date}}</td>
@@ -138,6 +139,20 @@
                     </div>	
                 </div>
                
+                
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Dosages</label>
+                    <div class="col-8">
+                        <select class="select" id="e_dosage" name="dosage">
+                            <option selected disabled>Select Dosage</option>
+                            <option value="Grams(g)">Grams(g)</option>
+                            <option value="Micrograms(mcg)">Micrograms(mcg)</option>
+                            <option value="Milligrams(mg)">Milligrams(mg)</option>
+                            <option value="Millilitre(mL)">Millilitre(mL)</option>                
+                        </select>
+                    </div> 	
+                </div>
+
                 <div class="form-group row">
                     <label class="col-form-label col-4">Frequency of drug</label>
                     <div class="col-8">
@@ -223,6 +238,32 @@
                         </div>	
                     </div>
 
+                      
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Dosages</label>
+                    <div class="col-8">
+                        <select class="select" id="e_dosage" name="dosage">
+                            <option selected disabled>Select Dosage</option>
+                            <option value="Grams(g)">Grams(g)</option>
+                            <option value="Micrograms(mcg)">Micrograms(mcg)</option>
+                            <option value="Milligrams(mg)">Milligrams(mg)</option>
+                            <option value="Millilitre(mL)">Millilitre(mL)</option>                
+                        </select>
+                    </div> 	
+                </div>  
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Dosages</label>
+                    <div class="col-8">
+                        <select class="select" id="e_dosage" name="dosage">
+                            <option selected disabled>Select Dosage</option>
+                            <option value="Grams(g)">Grams(g)</option>
+                            <option value="Micrograms(mcg)">Micrograms(mcg)</option>
+                            <option value="Milligrams(mg)">Milligrams(mg)</option>
+                            <option value="Millilitre(mL)">Millilitre(mL)</option>                
+                        </select>
+                    </div> 	
+                </div>
+
                     <div class="form-group row">
                         <label class="col-form-label col-4">Frequency of drug</label>
                         <div class="col-8">
@@ -239,6 +280,7 @@
                       
                         </div> 	
                     </div>
+
                     <div class="form-group">
                         <label>From <span class="text-danger">*</span></label>
                         <div class="cal-icon">
@@ -309,6 +351,7 @@
             $('#e_medname').val(_this.find('.medname').text());
             $('#e_contact_num').val(_this.find('.contact_num').text());
             $('#e_drugtype').val(_this.find('.drugtype').text());
+            $('#dosage').val(_this.find('.freqency').text());
             $('#e_freqency').val(_this.find('.freqency').text());
             $('#e_number_of_days').val(_this.find('.day').text());
             $('#e_time').val(_this.find('.time').text());
@@ -322,6 +365,10 @@
             var freqency = (_this.find(".freqency").text());
             var _option = '<option selected value="' + freqency+ '">' + _this.find('.freqency').text() + '</option>'
             $( _option).appendTo("#e_freqency");
+
+            var freqency = (_this.find(".dosage").text());
+            var _option = '<option selected value="' + freqency+ '">' + _this.find('.dosage').text() + '</option>'
+            $( _option).appendTo("#e_dosage");
           
         });
     </script>
