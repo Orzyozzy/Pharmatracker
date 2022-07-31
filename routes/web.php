@@ -62,6 +62,8 @@ Route::get('/reminder', function (){
     return view('userpage.reminder');
 });
 
+Route::get('sendSMS', 'NexmoSMSController@index');
+Route::get('/send/message',[App\Http\Controllers\SmsController::class, 'sendMessage']);
 Route::get('dashboard','ReminderViewwController@remind');
 Route::get('/search','ReminderViewwController@searchTest');
 Route::get('drugs','ReminderViewwController@drugs');

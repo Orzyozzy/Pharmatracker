@@ -27,13 +27,27 @@ class LeavesController extends Controller
 
         DB::beginTransaction();
         try {
+       
 
+            $basic  = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"), getenv("NEXMO_SECRET"));
+            $client = new \Nexmo\Client($basic);
+            $receiverNumber = $request->contact_num;
+            $message = "This is testing from ItSolutionStuff.com";
+       
          
             $from_date = new DateTime($request->from_date);
             $to_date = new DateTime($request->to_date);
             $contact_num = ['contact_num'=> 'required|numeric'];
             $day     = $from_date->diff($to_date);
             $days    = $day->d;
+       
+
+            
+            $message = $client->message()->send([
+                'to' => $receiverNumber,
+                'from' => 'Vonage APIs',
+                'text' => $message
+            ]);
 
             $reminder = new LeavesAdmin;
             $reminder->medname       = $request->medname;
@@ -55,6 +69,7 @@ class LeavesController extends Controller
             Toastr::error('Add Reminder fail :)','Error');
             return redirect()->back();
         }
+      
     }
 
     // edit record

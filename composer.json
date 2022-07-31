@@ -9,9 +9,11 @@
         "brian2694/laravel-toastr": "^5.57",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.11",
+        "laravel/nexmo-notification-channel": "^3.0",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "3.4",
+        "vonage/client": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

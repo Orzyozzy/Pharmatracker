@@ -114,7 +114,7 @@
                 <div class="form-group row">
                     <label class="col-form-label col-4">Contact Number</label>
                     <div class="col-8">
-                        <input type="number" class="form-control @error('contact_num') is-invalid @enderror" id="contact_num" name="contact_num" value="{{ old('contact_num') }}" placeholder="Enter your number">
+                        <input type="tel-num" class="form-control @error('contact_num') is-invalid @enderror" id="contact_num" name="contact_num" value="{{ old('contact_num') }}" placeholder="Enter your number in Coutry Code">
                         @error('contact_num')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
