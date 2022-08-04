@@ -80,7 +80,7 @@ Route::controller(LeavesController::class)->group(function () {
 /* This is for Admin Routes, for Auth */
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
 
 Route::prefix('/admin')->group(function()
 { 

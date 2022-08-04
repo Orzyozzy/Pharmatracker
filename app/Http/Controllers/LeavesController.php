@@ -32,25 +32,28 @@ class LeavesController extends Controller
             
         ]);
 
+   
+  
+            $basic  = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"), getenv("NEXMO_SECRET"));
+            $client = new \Nexmo\Client($basic);
+  
+            $receiverNumber = $request->contact_num;
+            $message = "This is testing from ItSolutionStuff.com";
+  
+            $message = $client->message()->send([
+                'to' => $receiverNumber,
+                'from' => 'Vonage APIs',
+                'text' => $message
+            ]);
+  
+           
+
         DB::beginTransaction();
         try {
 
     
-            $reminder = new LeavesAdmin;
-            $basic  = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"), getenv("NEXMO_SECRET"));
-            $client = new \Nexmo\Client($basic);
-
-            $receiverNumber = $request->$contact_num; 
-         
-            $message = "This is testing from Pharma Cure";
        
-            $message = $client->everyTwoMinutes->message()->send([
-                'to' => $receiverNumber,
-                'from' => 'Vonage APIs',
-                'text' => $message,
-               
-
-            ]); 
+            
 
             $from_date = new DateTime($request->from_date);
             $to_date = new DateTime($request->to_date);
