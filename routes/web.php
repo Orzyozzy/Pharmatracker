@@ -73,14 +73,20 @@ Route::controller(LeavesController::class)->group(function () {
  
     Route::post('form/leaves/save', 'saveRecord')->middleware('auth')->name('form/leaves/save');
     Route::post('form/leaves/edit', 'editRecordLeave')->middleware('auth')->name('form/leaves/edit');
-    Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');    
+    Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');   
+    
+ 
     
 });
+
+Route::post('/registeradmin', 'AdminController@saveAdmin')->name('admin/register/admin');
+ 
+    
 
 /* This is for Admin Routes, for Auth */
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/home');
 
 Route::prefix('/admin')->group(function()
 { 
@@ -88,6 +94,8 @@ Route::prefix('/admin')->group(function()
 Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/login', 'Auth\AdminLoginController@Login')->name('admin.login.submit');
 Route::get('/', 'AdminController@index')->name('admin.dashboard');
+Route::post('/register/user', 'AdminController@saveRecord')->name('admin/register/save');
+
 
 
 });
