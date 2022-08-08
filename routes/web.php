@@ -62,22 +62,26 @@ Route::get('/reminder', function (){
     return view('userpage.reminder');
 });
 
-Route::get('sendSMS', 'NexmoSMSController@index');
+Route::get('sendMsg', 'NexmoSMSController@backup');
 Route::get('/send/message',[App\Http\Controllers\SmsController::class, 'sendMessage']);
 Route::get('dashboard','ReminderViewwController@remind');
 Route::get('/search','ReminderViewwController@searchTest');
 Route::get('drugs','ReminderViewwController@drugs');
 
 
+
 Route::controller(LeavesController::class)->group(function () {
  
-    Route::post('form/leaves/save', 'saveRecord')->middleware('auth')->name('form/leaves/save');
+    Route::post('sendMsg', 'saveRecord')->middleware('auth')->name('form/leaves/save');
     Route::post('form/leaves/edit', 'editRecordLeave')->middleware('auth')->name('form/leaves/edit');
-    Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');   
-    
+    Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');    
  
-    
+       
+  
 });
+
+
+
 
 Route::post('/registeradmin', 'AdminController@saveAdmin')->name('admin/register/admin');
  

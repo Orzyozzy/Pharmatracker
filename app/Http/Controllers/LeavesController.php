@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\LeavesAdmin;
+use Artisan;
 use DB;
 use DateTime;
 
@@ -18,73 +19,16 @@ class LeavesController extends Controller
     // save record
     public function saveRecord(Request $request, Schedule $schedule)
     {
-        $request->validate([
-            'medname'   => 'required|string|max:255',
-            'drugtype'   => 'required|string|max:255',
-            'contact_num'  => 'required|string|max:255',
-            'from_date'    => 'required|string|max:255',
-            'to_date'      => 'required|string|max:255',
-            'dosage'        => 'required|string|max:255',
-            'freqency'   => 'required|string|max:255',
-            
-         
-        
-            
-        ]);
-
-   
-  
-            $basic  = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"), getenv("NEXMO_SECRET"));
-            $client = new \Nexmo\Client($basic);
-  
-            $receiverNumber = $request->contact_num;
-            $message = "This is testing from ItSolutionStuff.com";
-  
-            $message = $client->message()->send([
-                'to' => $receiverNumber,
-                'from' => 'Vonage APIs',
-                'text' => $message
-            ]);
-  
+        try{
+        \Artisan::call('SMS:Twice');
+        Toastr::success('Create new Reminder successfully :)','Success');
            
-
-        DB::beginTransaction();
-        try {
-
-    
-       
-            
-
-            $from_date = new DateTime($request->from_date);
-            $to_date = new DateTime($request->to_date);
-            $contact_num = ['contact_num'=> 'required|numeric'];
-            $day     = $from_date->diff($to_date);
-            $days    = $day->d;
-
-            $reminder = new LeavesAdmin;
-            $reminder->medname       = $request->medname;
-            $reminder->drugtype      = $request->drugtype;
-            $reminder->contact_num   = $request->contact_num;
-            $reminder->from_date     = $request->from_date;
-            $reminder->to_date       = $request->to_date;
-            $reminder->dosage       = $request->dosage;
-            $reminder->freqency     = $request->freqency;
-            $reminder->day           = $days;
-   
-            
-            $reminder->save();
-            
-            DB::commit();
-            Toastr::success('Create new Reminder successfully :)','Success');
-            return redirect()->back();
-        } catch(\Exception $e) {
-            DB::rollback();
-            Toastr::error('Add Reminder fail :)','Error');
-            return redirect()->back();
-        }
-
-       
-      
+        return redirect()->back();
+    } catch(\Exception $e) {
+        DB::rollback();
+        Toastr::error('Add Reminder fail :)','Error');
+        return redirect()->back();
+    }
     }
 
     // edit record
