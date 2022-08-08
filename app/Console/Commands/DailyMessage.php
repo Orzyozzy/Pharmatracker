@@ -12,7 +12,7 @@ class DailyMessage extends Command
      *
      * @var string
      */
-    protected $signature = 'SMS';
+    protected $signature = 'SMS:Twice';
 
     /**
      * The console command description.
