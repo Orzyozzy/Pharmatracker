@@ -1,14 +1,20 @@
 @extends('layouts.form')
 
 @section('section')
+
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
+                    
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        <div class="text-center mt-4 name">
+                            <div>{{ __('Register Here') }}</div>
+                        </div>
+                        <br>
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Full Name') }}</label>
 
