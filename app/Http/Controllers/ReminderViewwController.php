@@ -14,8 +14,8 @@ class ReminderViewwController extends Controller {
    public function remind() 
    {
       $users = DB::table('leaves_admins')->paginate(5);    
-      return view('userpage.remind',['users'=>$users]);
-   }
+    return view('userpage.remind',['users'=>$users]);
+   } 
 
    public function drugs(Request $request) 
    {

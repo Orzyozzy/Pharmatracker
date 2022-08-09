@@ -29,6 +29,7 @@
                 <div class="card-body p-0">
                     <table class="table table-striped custom-table mb-0 datatable">
                         <thead>
+                            
                             <tr>
                                 <th>Medication's Name</th>
                                 <th>Type of Drug</th>

@@ -2,6 +2,12 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Models\LeavesAdmin;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +20,29 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('SMS:Twice', function (Request $request) {
+   
+
+    
+    $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+             $client = new \Vonage\Client($basic);
+         
+             $receiverNumber = '+639062328286';
+             $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
+             
+       
+          
+                 $message = $client->message()->send([
+                     'to'   =>  $receiverNumber,
+                     'from' => 'Vonage APIs',
+                     'text' => $message,
+                     
+                 ]);  
+                
+       
+    
+      
+    
+});
+
+

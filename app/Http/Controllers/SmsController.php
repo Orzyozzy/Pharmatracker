@@ -14,7 +14,6 @@ class SmsController extends Controller
             'from' => '09062328286',
             'text' => 'Using the facade to send a message.'
         ]);
-        
         echo "Message Sent Successfully";
     }
 }

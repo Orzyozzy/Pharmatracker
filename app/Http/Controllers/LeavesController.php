@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\LeavesAdmin;
+use Artisan;
 use DB;
 use DateTime;
 
@@ -25,42 +26,31 @@ class LeavesController extends Controller
             'from_date'    => 'required|string|max:255',
             'to_date'      => 'required|string|max:255',
             'dosage'        => 'required|string|max:255',
-            'freqency'   => 'required|string|max:255',
-            
-         
-        
-            
+            'freqency'   => 'required|string|max:255',           
         ]);
-
-   
-  
-            $basic  = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"), getenv("NEXMO_SECRET"));
-            $client = new \Nexmo\Client($basic);
-  
-            $receiverNumber = $request->contact_num;
-            $message = "This is testing from ItSolutionStuff.com";
-  
-            $message = $client->message()->send([
-                'to' => $receiverNumber,
-                'from' => 'Vonage APIs',
-                'text' => $message
-            ]);
-  
-           
-
-        DB::beginTransaction();
-        try {
-
+              
+        $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+        $client = new \Vonage\Client($basic);
     
-       
-            
-
+        $receiverNumber = $request->contact_num;
+        $message = "Hi, Good day! Dont forget to drink your $request->medname, $request->freqency";
+        
+        $message = $client->message()->send([
+            'to' =>  $receiverNumber,
+            'from' => 'Vonage APIs',
+            'text' => $message,
+            'sms' => now()->addMinutes(10),
+        ]);
+    
+        DB::beginTransaction();
+          try{
+    
             $from_date = new DateTime($request->from_date);
             $to_date = new DateTime($request->to_date);
             $contact_num = ['contact_num'=> 'required|numeric'];
             $day     = $from_date->diff($to_date);
             $days    = $day->d;
-
+    
             $reminder = new LeavesAdmin;
             $reminder->medname       = $request->medname;
             $reminder->drugtype      = $request->drugtype;
@@ -70,23 +60,24 @@ class LeavesController extends Controller
             $reminder->dosage       = $request->dosage;
             $reminder->freqency     = $request->freqency;
             $reminder->day           = $days;
-   
-            
+    
+           
             $reminder->save();
-            
+              
+  
             DB::commit();
+            
             Toastr::success('Create new Reminder successfully :)','Success');
+           
             return redirect()->back();
         } catch(\Exception $e) {
             DB::rollback();
             Toastr::error('Add Reminder fail :)','Error');
             return redirect()->back();
+    
         }
-
-       
-      
-    }
-
+        \Artisan::call('SMS:Twice');
+    }  
     // edit record
     public function editRecordLeave(Request $request)
     {
