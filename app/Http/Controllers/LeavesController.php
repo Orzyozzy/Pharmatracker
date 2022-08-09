@@ -33,13 +33,14 @@ class LeavesController extends Controller
         $client = new \Vonage\Client($basic);
     
         $receiverNumber = $request->contact_num;
-        $message = "Hi, Good day! Dont forget to drink your $request->medname, $request->freqency";
+        $message = "Hi, Thank you for adding reminder";
         
         $message = $client->message()->send([
             'to' =>  $receiverNumber,
             'from' => 'Vonage APIs',
             'text' => $message,
-            'sms' => now()->addMinutes(10),
+        
+       
         ]);
     
         DB::beginTransaction();

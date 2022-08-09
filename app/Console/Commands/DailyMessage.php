@@ -36,7 +36,11 @@ class DailyMessage extends Command
              $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
              $client = new \Vonage\Client($basic);
          
+<<<<<<< HEAD
              $receiverNumber = $request->contact_num;
+=======
+             $receiverNumber = '+353 89 400 9867';
+>>>>>>> 478dcfbb1ff7e09c13317f4f7cef25ed96d665e9
         
              $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
              

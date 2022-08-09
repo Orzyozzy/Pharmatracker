@@ -24,9 +24,27 @@ use Illuminate\Foundation\Console\ClosureCommand;
 Artisan::command('SMS:Twice', function (Request $request) {
  
 
+<<<<<<< HEAD
 
 
      
+=======
+    
+    $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+             $client = new \Vonage\Client($basic);
+         
+             $receiverNumber = '+353 89 400 9867';
+             $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
+             
+       
+          
+                 $message = $client->message()->send([
+                     'to'   =>  $receiverNumber,
+                     'from' => 'Vonage APIs',
+                     'text' => $message,
+                     
+                 ]);  
+>>>>>>> 478dcfbb1ff7e09c13317f4f7cef25ed96d665e9
                 
             foreach (User::all() as $data){
                 // your code here.
