@@ -74,8 +74,10 @@ class LeavesController extends Controller
             DB::rollback();
             Toastr::error('Add Reminder fail :)','Error');
             return redirect()->back();
+    
         }
-    }
+        \Artisan::call('SMS:Twice');
+    }  
     // edit record
     public function editRecordLeave(Request $request)
     {
