@@ -48,7 +48,9 @@ class CustomSmsNotification extends Notification
      */
     public function toVonage($notifiable)
     {
-        return (new VonageMessage)->content($this->message);
+        return (new VonageMessage)
+        ->content('Your SMS message content')
+        ->from('+639062328286, +639487393311');
     }
 
     /**

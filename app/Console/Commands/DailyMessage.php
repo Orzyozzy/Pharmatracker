@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
+use App\Models\LeavesAdmin;
 
 class DailyMessage extends Command
 {
@@ -27,19 +28,28 @@ class DailyMessage extends Command
      * @return int
      */
     public function handle(Request $request)
-    {
-        $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
-        $client = new \Vonage\Client($basic);
+    {        
+
+     
+
+             $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+             $client = new \Vonage\Client($basic);
+         
+             $receiverNumber = '+639062328286';
+        
+             $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
+             
+       
+           
+                 $message = $client->message()->send([
+                     'to'   => $receiverNumber,
+                     'from' => 'Vonage APIs',
+                     'text' => $message,
+                    
+                 ]);  
+                
+       
     
-        $receiverNumber = $request->contact_num;
-        $message = "hi" .$name.", This is testing from ItSolutionStuff.com";
-    
-        $message = $client->message()->send([
-            'to' => \Auth::user()->contactnumber,
-            'from' => 'Vonage APIs',
-            'text' => $message
-        ]);
-   
       
     }
 }
