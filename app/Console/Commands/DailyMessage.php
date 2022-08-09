@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Foundation\Console\ClosureCommand;
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
-use App\Models\LeavesAdmin;
+use App\Models\schedule;
 
 class DailyMessage extends Command
 {
@@ -29,13 +30,13 @@ class DailyMessage extends Command
      */
     public function handle(Request $request)
     {        
-
-     
+       
+                          
 
              $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
              $client = new \Vonage\Client($basic);
          
-             $receiverNumber = '+639062328286';
+             $receiverNumber = $request->contact_num;
         
              $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
              

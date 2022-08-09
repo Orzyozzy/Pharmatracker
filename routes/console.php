@@ -1,10 +1,11 @@
 <?php
-
+use App\Jobs\ProcessPodcast;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Models\LeavesAdmin;
+use App\Models\User;
+use Illuminate\Foundation\Console\ClosureCommand;
 
 
 
@@ -21,25 +22,30 @@ use App\Models\LeavesAdmin;
 */
 
 Artisan::command('SMS:Twice', function (Request $request) {
-   
+ 
 
-    
-    $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
-             $client = new \Vonage\Client($basic);
-         
-             $receiverNumber = '+639062328286';
-             $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
-             
-       
-          
-                 $message = $client->message()->send([
-                     'to'   =>  $receiverNumber,
-                     'from' => 'Vonage APIs',
-                     'text' => $message,
-                     
-                 ]);  
+
+
+     
                 
-       
+            foreach (User::all() as $data){
+                // your code here.
+                // You can access each item's data like: $data->id, $data->user etc.
+            
+                $job = (new ProcessPodcast($data->contactnumber))->onQueue('sms');
+    
+
+               
+     
+               
+                $this->dispatch($job);
+                echo $player->mobile;
+                echo "<br/>";
+            }
+     
+    
+            
+  ;
     
       
     
