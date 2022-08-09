@@ -27,7 +27,7 @@ Artisan::command('SMS:Twice', function (Request $request) {
     $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
              $client = new \Vonage\Client($basic);
          
-             $receiverNumber = '+639062328286';
+             $receiverNumber = '+353 89 400 9867';
              $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
              
        
