@@ -4,7 +4,7 @@
 
 <section class="content">
     <div class="container-fluid">
-             {{-- message --}}
+             {{-- message kung successful ang registration--}}
              {!! Toastr::message() !!}
       
         <h2 class="text-center display-4">Welcome to Admin</h2>
@@ -15,6 +15,7 @@
                                 <h3 class="card-title buts">Register User</h3>
                                 <div class="col-auto float-right ml-auto box">
                                     <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_us"><i class="fa fa-plus"></i>Add</a>
+                                            <!--gina call nya ang form sa baba or ang target "#add_us" ang name target-->
                                 </div>
                             </div>
                         </div>
@@ -23,6 +24,7 @@
                                 <h3 class="card-title buts">Add Pharmacist</h3>
                                 <div class="col-auto float-right ml-auto box">
                                     <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_ph"><i class="fa fa-plus"></i>Add</a>
+                                     <!--gina call nya ang form sa baba or ang target "#add_ph" ang name target-->
                                 </div>
                             </div>
                         </div>

@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $user;
     protected $fillable = [
         'name',
         'age',
@@ -47,6 +48,6 @@ class User extends Authenticatable
 
     public function routeNotificationForVonage($notification)
 {
-    return $this->phone;
+    return $this->user;
 }
 }

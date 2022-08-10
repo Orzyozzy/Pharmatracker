@@ -1,10 +1,11 @@
 <?php
-
+use App\Jobs\ProcessPodcast;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Models\LeavesAdmin;
+use App\Models\User;
+use Illuminate\Foundation\Console\ClosureCommand;
 
 
 
@@ -21,7 +22,7 @@ use App\Models\LeavesAdmin;
 */
 
 Artisan::command('SMS:Twice', function (Request $request) {
-   
+ 
 
     $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
     $client = new \Vonage\Client($basic);
@@ -41,6 +42,8 @@ Artisan::command('SMS:Twice', function (Request $request) {
     }
    
        
+
+
     
       
     
