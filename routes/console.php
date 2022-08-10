@@ -4,7 +4,7 @@ use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Models\User;
+use App\Models\LeavesAdmin;
 use Illuminate\Foundation\Console\ClosureCommand;
 
 

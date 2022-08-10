@@ -33,30 +33,7 @@ class LeavesController extends Controller
               
        // $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
        //$client = new \Vonage\Client($basic);
-    
-<<<<<<< HEAD
-        //$receiverNumber = $request->contact_num;
-        //$message = "Hi, Good day! Dont forget to drink your $request->medname, $request->freqency";
-        
-        //$message = $client->message()->send([
-            //'to' =>  $receiverNumber,
-            //'from' => 'Vonage APIs',
-            //'text' => $message,
-        
-       
-        //]);
-=======
-        $receiverNumber = $request->contact_num;
-        $message = "Hi, Thank you for adding reminder";
-        
-        $message = $client->message()->send([
-            'to' =>  $receiverNumber,
-            'from' => 'Vonage APIs',
-            'text' => $message,
-        
-       
-        ]);
->>>>>>> d648b78db9443ad598cdf268bb28381f306e1676
+
     
         DB::beginTransaction();
           try{
