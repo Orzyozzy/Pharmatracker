@@ -52,7 +52,7 @@
                                 <td class="medname">{{$items->medname}}</td>
                                 <td class="drugtype">{{$items->drugtype}}</td>
                                 <td class="contact_num">{{$items->contact_num}}</td>
-                                <td class="dosage">{{$items->dosage}}</td>
+                                <td class="dosage">{{$items->dosage}} {{$items->dosagenum}}</td>
                                 <td hidden class="from_date">{{ $items->from_date }}</td>
                                 <td>{{date('d F, Y',strtotime($items->from_date)) }}</td>
                                 <td hidden class="to_date">{{$items->to_date}}</td>
@@ -102,18 +102,6 @@
                 @csrf
 
                 <div class="form-group row">
-                    <label class="col-form-label col-4">Name</label>
-                    <div class="col-8">
-                        <input type="text" class="form-control @error('medname') is-invalid @enderror" id="medname" name="medname" value="{{ old('medname') }}" placeholder="Enter your Medication's name">
-                        @error('medname')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>        	
-                </div>
-
-                <div class="form-group row">
                     <label class="col-form-label col-4">Medication's Name</label>
                     <div class="col-8">
                         <input type="text" class="form-control @error('medname') is-invalid @enderror" id="medname" name="medname" value="{{ old('medname') }}" placeholder="Enter your Medication's name">
@@ -156,9 +144,9 @@
                
                 
                 <div class="form-group row">
-                    <label class="col-form-label col-4">Medication's Name</label>
+                    <label class="col-form-label col-4">Dosage</label>
                     <div class="col-8">
-                        <input type="text" class="form-control @error('dosagenum') is-invalid @enderror" id="dosagenum" name="dosagenum" value="{{ old('dosagenum') }}" placeholder="Enter your Medication's name">
+                        <input type="text" class="form-control @error('dosagenum') is-invalid @enderror" id="dosagenum" name="dosagenum" value="{{ old('dosagenum') }}" placeholder="Enter the Strength's of Drugs">
                         @error('dosagenum')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

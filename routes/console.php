@@ -28,8 +28,7 @@ Artisan::command('SMS:Twice', function (Request $request) {
     $client = new \Vonage\Client($basic);
 
     $user = LeavesAdmin::all();
-    foreach ($user as $all)
-    {
+    foreach ($user as $all){
      $message = "Hi, Good day! Please Dont Forget to drink your $all->medname , $all->freqency";
      $message = $client->message()->send([
                 'to'   => ($all->contact_num),
@@ -41,12 +40,6 @@ Artisan::command('SMS:Twice', function (Request $request) {
             $this->info('Reminder has been successfully added');
     }
    
-       
-
-
-    
-      
-    
 });
 
 

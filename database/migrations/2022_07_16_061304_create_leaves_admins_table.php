@@ -15,6 +15,7 @@ class CreateLeavesAdminsTable extends Migration
     {
         Schema::create('leaves_admins', function (Blueprint $table) {
             $table->id();
+          
             $table->string('medname')->nullable();
             $table->string('drugtype')->nullable();
             $table->string('contact_num')->nullable();

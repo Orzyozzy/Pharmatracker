@@ -19,7 +19,7 @@ class LeavesController extends Controller
     // save record
     public function saveRecord(Request $request, Schedule $schedule)
     {
-
+            //required to fill up
         $request->validate([
             'medname'   => 'required|string|max:255',
             'drugtype'   => 'required|string|max:255',
@@ -30,10 +30,6 @@ class LeavesController extends Controller
             'dosage'        => 'required|string|max:255',
             'freqency'   => 'required|string|max:255',           
         ]);
-              
-       // $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
-       //$client = new \Vonage\Client($basic);
-
     
         DB::beginTransaction();
           try{
@@ -44,6 +40,7 @@ class LeavesController extends Controller
             $day     = $from_date->diff($to_date);
             $days    = $day->d;
     
+            //store to the database after validate 
             $reminder = new LeavesAdmin;
             $reminder->medname       = $request->medname;
             $reminder->drugtype      = $request->drugtype;
@@ -54,8 +51,6 @@ class LeavesController extends Controller
             $reminder->dosage       = $request->dosage;
             $reminder->freqency     = $request->freqency;
             $reminder->day           = $days;
-    
-           
             $reminder->save();
               
   
@@ -63,14 +58,14 @@ class LeavesController extends Controller
             
            
             Toastr::success('Create new Reminder successfully :)','Success');
-           
+         
             return redirect()->back();
         } catch(\Exception $e) {
             DB::rollback();
             Toastr::error('Add Reminder fail :)','Error');
             return redirect()->back();
             
-        }
+        }  Artisan::call('SMS:Twice');
        
     }  
     // edit record

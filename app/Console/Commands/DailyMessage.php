@@ -37,14 +37,7 @@ class DailyMessage extends Command
              $client = new \Vonage\Client($basic);
          
         
-            // $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
          
-            //     $message = $client->message()->send([
-              //       'to'   => $receiverNumber,
-                //     'from' => 'Vonage APIs',
-                  //   'text' => $message,
-                    
-                // ]);  
                 
        $user = LeavesAdmin::all();
        foreach ($user as $all)

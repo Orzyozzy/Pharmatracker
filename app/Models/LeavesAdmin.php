@@ -9,6 +9,7 @@ class LeavesAdmin extends Model
 {
     use HasFactory;
     protected $fillable = [
+      
         'medname',
         'drugtype',
         'contact_num',
