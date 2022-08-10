@@ -14,6 +14,7 @@ class LeavesAdmin extends Model
         'contact_num',
         'from_date',
         'to_date',
+        'dosagenum',
         'dosage',
         'freqency',
         'day',

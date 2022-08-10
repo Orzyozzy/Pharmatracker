@@ -19,28 +19,31 @@ class LeavesController extends Controller
     // save record
     public function saveRecord(Request $request, Schedule $schedule)
     {
+
         $request->validate([
             'medname'   => 'required|string|max:255',
             'drugtype'   => 'required|string|max:255',
             'contact_num'  => 'required|string|max:255',
             'from_date'    => 'required|string|max:255',
             'to_date'      => 'required|string|max:255',
+            'dosagenum'     => 'required|string|max:255',
             'dosage'        => 'required|string|max:255',
             'freqency'   => 'required|string|max:255',           
         ]);
               
-        $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
-        $client = new \Vonage\Client($basic);
+       // $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+       //$client = new \Vonage\Client($basic);
     
-        $receiverNumber = $request->contact_num;
-        $message = "Hi, Good day! Dont forget to drink your $request->medname, $request->freqency";
+        //$receiverNumber = $request->contact_num;
+        //$message = "Hi, Good day! Dont forget to drink your $request->medname, $request->freqency";
         
-        $message = $client->message()->send([
-            'to' =>  $receiverNumber,
-            'from' => 'Vonage APIs',
-            'text' => $message,
-            'sms' => now()->addMinutes(10),
-        ]);
+        //$message = $client->message()->send([
+            //'to' =>  $receiverNumber,
+            //'from' => 'Vonage APIs',
+            //'text' => $message,
+        
+       
+        //]);
     
         DB::beginTransaction();
           try{
@@ -57,6 +60,7 @@ class LeavesController extends Controller
             $reminder->contact_num   = $request->contact_num;
             $reminder->from_date     = $request->from_date;
             $reminder->to_date       = $request->to_date;
+            $reminder->dosagenum      = $request->dosagenum;
             $reminder->dosage       = $request->dosage;
             $reminder->freqency     = $request->freqency;
             $reminder->day           = $days;
@@ -67,6 +71,7 @@ class LeavesController extends Controller
   
             DB::commit();
             
+           
             Toastr::success('Create new Reminder successfully :)','Success');
            
             return redirect()->back();
@@ -74,9 +79,9 @@ class LeavesController extends Controller
             DB::rollback();
             Toastr::error('Add Reminder fail :)','Error');
             return redirect()->back();
-    
+            
         }
-        \Artisan::call('SMS:Twice');
+       
     }  
     // edit record
     public function editRecordLeave(Request $request)

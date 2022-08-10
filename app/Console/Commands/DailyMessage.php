@@ -32,24 +32,31 @@ class DailyMessage extends Command
 
      
 
-             $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
+        $basic  = new \Vonage\Client\Credentials\Basic(getenv("VONAGE_KEY"), getenv("VONAGE_SECRET"));
              $client = new \Vonage\Client($basic);
          
-             $receiverNumber = '+639062328286';
+            // $receiverNumber = '+639062328286';
         
-             $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
-             
-       
-           
-                 $message = $client->message()->send([
-                     'to'   => $receiverNumber,
-                     'from' => 'Vonage APIs',
-                     'text' => $message,
+            // $message = "Hi, Good day! Please Dont Forget to drink your Medicine";
+         
+            //     $message = $client->message()->send([
+              //       'to'   => $receiverNumber,
+                //     'from' => 'Vonage APIs',
+                  //   'text' => $message,
                     
-                 ]);  
+                // ]);  
                 
-       
-    
+       $user = LeavesAdmin::all();
+       foreach ($user as $all)
+       {
+        $message = "Hi, Good day! Please Dont Forget to drink your Medicine $all->medname , $all ->freqency";
+        $message = $client->message()->send([
+                   'to'   => ($all->contact_num),
+                   'from' => 'Vonage APIs',
+                   'text' => $message,
+                  
+               ]);
+       }
       
     }
 }
